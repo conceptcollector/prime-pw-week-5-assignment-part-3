@@ -6,12 +6,12 @@ let album;
 
 function addToCollection(title, artist, yearPublished) {
     collection.push(album = {
-        title: title,
-        artist: artist,
-        yearPublished: yearPublished
+        Title: title,
+        Artist: artist,
+        'Year Published': yearPublished
         }
     )
-    return this.album;
+    return album;
 }
 
 addToCollection('Blackstar', 'David Bowie', 2016);
@@ -27,3 +27,13 @@ console.log(album);
 addToCollection('Beyonce', 'Beyonce', 2013);
 console.log(album);
 console.log(collection);
+
+function showCollection(array) {
+    console.log(`My collection currently holds ${array.length} albums.`);
+    for (item of array) {
+        console.log(item);
+    }
+    return;
+}
+
+showCollection(collection);
