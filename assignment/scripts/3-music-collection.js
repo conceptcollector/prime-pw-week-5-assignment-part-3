@@ -69,16 +69,6 @@ findByArtist('Led Zeppelin', verifiableCollection);
 //Probably completely unnecessary to run this against two arrays that work the same way.
 //But I'm taking my notes from last week to heart, I guess!
 
-// - Create a function called `search`. This function should:
-//   - Take an input parameter for a search criteria object. Create your solution based on a search object that has these properties:
-//   ```
-//   { artist: 'Ray Charles', year: 1957 }
-//   ```
-//   - The returned output from `search` should meet these requirements:
-//     - Return a new array of all items in the `collection` matching *all* of the search criteria.
-//     - If no results are found, return an empty array.
-//     - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
-
 // Function to search objects
 // Input: { artist: 'Ray Charles', year: 1957 },
 // (I do not know how to return a full collection with no search criteria,
@@ -87,8 +77,9 @@ findByArtist('Led Zeppelin', verifiableCollection);
 // & full array if no search criteria entered...
 
 function searchCollection(artist, year) {
+
     // new array
-    // for of loop through collection
+    // for of loop through collection (nope...)
 
     // if else statement
     // artist or year
@@ -96,9 +87,10 @@ function searchCollection(artist, year) {
     // if artist/year === undefined
     // return collection... thinking of what pair of brackets this needs to be in...
     // return array
+
     let recordStoreFind = [];
-    for (let finder of collection) {
-        if (collection[finder].artist === artist || collection[finder].yearPublished === year) {
+    for (let finder = 0; finder < collection.length; finder++) {
+        if (artist === collection[finder].artist || year === collection[finder].yearPublished) {
             recordStoreFind.push(finder);
         }
         else if (collection[finder].artist != artist && collection[finder].yearPublished != year) {
@@ -116,6 +108,10 @@ searchCollection('Tom Waits', 2002);
 searchCollection('Beyonce', 2020);
 searchCollection('Ray Charles', 1957);
 searchCollection();
+
+// Hm... I don't know how to make it only push the artist and year.
+// (Though I'm not sure if that was the goal...)
+// Also not sure why my for of loop didn't work. But the standard for loop did, at least!
 
 // - Add an array of `tracks` to your album objects. Each track should have a `name` and `duration`. You will need to update the functions to support this new property:
 //   - Update the `addToCollection` function to also take an input parameter for the array of tracks.
