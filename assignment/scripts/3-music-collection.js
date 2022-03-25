@@ -92,15 +92,16 @@ function searchCollection(artist, year) {
     for (let finder = 0; finder < collection.length; finder++) {
         if (artist === collection[finder].artist || year === collection[finder].yearPublished) {
             recordStoreFind.push(finder);
+            return console.log(recordStoreFind);
         }
         else if (collection[finder].artist != artist && collection[finder].yearPublished != year) {
-            return recordStoreFind;
+            return console.log(recordStoreFind);
         }
         else if (artist === undefined && year === undefined) {
-            recordStoreFind.push(collection);
+            return console.log (recordStoreFind.push(collection));
         }
     }
-    return console.log(recordStoreFind);
+    return;
 }
 
 searchCollection('The Replacements', 1984);
