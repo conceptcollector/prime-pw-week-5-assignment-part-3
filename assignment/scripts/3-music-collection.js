@@ -7,14 +7,16 @@ let album;
 // After office hours today I thought testing my functions might be a good idea.
 //Broadened addToCollection to work with more than just the one array
 
-function addToCollection(recordCollection, title, artist, yearPublished) {
+function addToCollection(recordCollection, title, artist, yearPublished, tracks) {
     recordCollection.push(album = {
         title: title,
         artist: artist,
-        yearPublished: yearPublished
+        yearPublished: yearPublished,
+        tracks: tracks
         }
     )
-    return console.log(album);
+    console.log(album);
+    return album;
 }
 
 addToCollection(collection, 'Blackstar', 'David Bowie', 2016);
@@ -79,40 +81,45 @@ findByArtist('Led Zeppelin', verifiableCollection);
 function searchCollection(artist, year) {
 
     // new array
-    // for of loop through collection (nope...)
-
+    // for of loop through collection (later Chris: nope...)
     // if else statement
     // artist or year
     // push to collection
     // if artist/year === undefined
-    // return collection... thinking of what pair of brackets this needs to be in...
+    // return collection... thinking of what pair of curly brackets this needs to be in...
     // return array
 
     let recordStoreFind = [];
+    if (artist === undefined && year === undefined) {
+        recordStoreFind.push(collection);
+    }
+    
     for (let finder = 0; finder < collection.length; finder++) {
-        if (artist === collection[finder].artist || year === collection[finder].yearPublished) {
-            recordStoreFind.push(finder);
-            return console.log(recordStoreFind);
-        }
-        else if (collection[finder].artist != artist && collection[finder].yearPublished != year) {
-            return console.log(recordStoreFind);
-        }
-        else if (artist === undefined && year === undefined) {
-            return console.log (recordStoreFind.push(collection));
+        if (artist === collection[finder].artist && year === collection[finder].yearPublished) {
+            recordStoreFind.push(collection[finder]);
         }
     }
-    return;
+    return recordStoreFind;
 }
 
-searchCollection('The Replacements', 1984);
+console.log(searchCollection('The Replacements', 1984));
 searchCollection('Tom Waits', 2002);
+console.log(searchCollection('Tom Waits', 2002));
 searchCollection('Beyonce', 2020);
+console.log(searchCollection('Beyonce', 2020));
 searchCollection('Ray Charles', 1957);
+console.log(searchCollection('Ray Charles', 1957));
 searchCollection();
+console.log(searchCollection());
 
 // Hm... I don't know how to make it only push the artist and year.
 // (Though I'm not sure if that was the goal...)
-// Also not sure why my for of loop didn't work. But the standard for loop did, at least!
+// Also not sure why my for of loop didn't work.
+// (Even tried it after office hours. Still nothing.)
+// But the standard for loop did, at least!
+
+// Tracks as an array. (I'm thinking very seriously about making it an array of arrays.
+// But that seems potentially needlessly complicated with little to no pay off.)
 
 // - Add an array of `tracks` to your album objects. Each track should have a `name` and `duration`. You will need to update the functions to support this new property:
 //   - Update the `addToCollection` function to also take an input parameter for the array of tracks.
