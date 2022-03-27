@@ -122,11 +122,22 @@ const emptyCollection = [];
 // addToCollection(verifiableCollection, 'Zen Arcade', 'Hüsker Dü', 1984);
 
 function showCollection(array) {
+    
     console.log(`My collection currently holds ${array.length} albums.`);
     for (let item of array) {
         console.log(`${item.title} by ${item.artist}, published in ${item.yearPublished}.`);
+        for (let song in item.tracks) {
+            let trackNumber = parseInt(song) + 1;
+            
+            console.log(`${trackNumber}. ${item.tracks[song][0]}: ${item.tracks[song][1]}`);
+            // if (item.tracks[song] === item.tracks[song].length){
+            // trackNumber += 1; 
+            // } else if (item.tracks[song] < item.tracks[song].length - 1) {
+                // trackNumber += 1;
+            // }
+        }
     }
-    return;
+    return true;
 }
 
 showCollection(collection);
@@ -174,27 +185,29 @@ function searchCollection(artist, year, trackName) {
     // return array
 
     let recordStoreFind = [];
+    
     if (artist === undefined && year === undefined) {
         recordStoreFind.push(collection);
     }
     for (let finder = 0; finder < collection.length; finder++) {
         if (artist === collection[finder].artist && year === collection[finder].yearPublished) {
-            finder = album;
-        for (let songFinder = 0; songFinder < finder.tracks.length; songFinder++ ) {
-            if (trackName === finder.tracks[songFinder]) {
-        }
-        recordStoreFind.push(finder.tracks[songFinder]);
-    }
+        recordStoreFind.push(collection[finder]);
+        for (let song = 0; song < Object.keys(collection[finder].tracks).length; song++) {
+            if (trackName === collection[finder].tracks[song]) {
+                recordStoreFind.push(collection[finder].tracks[song]);
+            }
+            }
     }
     }
     return recordStoreFind;
+    
 }
 
 console.log(searchCollection('The Replacements', 1984, 'Unsatisfied'));
-// console.log(searchCollection('Tom Waits', 2002));
-// console.log(searchCollection('Beyonce', 2020));
-// console.log(searchCollection('Ray Charles', 1957));
-// console.log(searchCollection());
+console.log(searchCollection('Tom Waits', 2002));
+console.log(searchCollection('Beyonce', 2020));
+console.log(searchCollection('Ray Charles', 1957));
+console.log(searchCollection());
 
 // Hm... I don't know how to make it only push the artist and year.
 // (Though I'm not sure if that was the goal...)
@@ -202,8 +215,8 @@ console.log(searchCollection('The Replacements', 1984, 'Unsatisfied'));
 // (Even tried it after office hours. Still nothing.)
 // But the standard for loop did, at least!
 
-// Tracks as an array. (I'm thinking very seriously about making it an array of arrays.
-// But that seems potentially needlessly complicated with little to no pay off.)
+// Tracks as an array. Array of arrays for both the title and the duration.
+// But unfortunately, this one beat me... I'm baffled.
 
 // addToCollection INPUT: + Tracks
 // addToCollection OUTPUT: + [Tracks]
