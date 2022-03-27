@@ -162,7 +162,7 @@ findByArtist('Prince', collection);
 // Output: New Array matching items in search criteria, empty array sans results,
 // & full array if no search criteria entered...
 
-function searchCollection(artist, year) {
+function searchCollection(artist, year, trackName) {
 
     // new array
     // for of loop through collection (later Chris: nope...)
@@ -177,20 +177,24 @@ function searchCollection(artist, year) {
     if (artist === undefined && year === undefined) {
         recordStoreFind.push(collection);
     }
-    
     for (let finder = 0; finder < collection.length; finder++) {
         if (artist === collection[finder].artist && year === collection[finder].yearPublished) {
-            recordStoreFind.push(collection[finder]);
+            finder = album;
+        for (let songFinder = 0; songFinder < finder.tracks.length; songFinder++ ) {
+            if (trackName === finder.tracks[songFinder]) {
         }
+        recordStoreFind.push(finder.tracks[songFinder]);
+    }
+    }
     }
     return recordStoreFind;
 }
 
-console.log(searchCollection('The Replacements', 1984));
-console.log(searchCollection('Tom Waits', 2002));
-console.log(searchCollection('Beyonce', 2020));
-console.log(searchCollection('Ray Charles', 1957));
-console.log(searchCollection());
+console.log(searchCollection('The Replacements', 1984, 'Unsatisfied'));
+// console.log(searchCollection('Tom Waits', 2002));
+// console.log(searchCollection('Beyonce', 2020));
+// console.log(searchCollection('Ray Charles', 1957));
+// console.log(searchCollection());
 
 // Hm... I don't know how to make it only push the artist and year.
 // (Though I'm not sure if that was the goal...)
@@ -205,7 +209,10 @@ console.log(searchCollection());
 // addToCollection OUTPUT: + [Tracks]
 
 // searchCollection INPUT: + trackName
-// Loop through albums and... return the array that they're located in? (Which array will I get??)
+// + loop through albums and... return the array that they're located in? (Which array will I get??)
+// Okay, arrays in an array in an array...
+// So, the song is in the inner array which is in an array called tracks...
+//
 // " OUTPUT: Not sure if this should just grab the song or grab the whole album...
 
 
