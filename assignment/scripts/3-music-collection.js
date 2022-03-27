@@ -52,6 +52,8 @@ addToCollection(collection, 'Let It Be', 'The Replacements', 1984, [
     ['Unsatisfied', '4:01'],
     ['Seen Your Video', '3:08'],
     ["Gary's Got a Boner", '2:28'],
+    // Just want to apologize for some of the titles...
+    // Blackstar and Replacements both had one I cringed over putting in my assignment.
     ['Sixteen Blue', '4:24'],
     ['Answering Machine', '3:40']
 ]);
@@ -105,11 +107,12 @@ addToCollection(collection, 'Beyonce', 'Beyonce', 2013, [
 ]);
 console.log(collection);
 
-// Commenting out the other arrays. They work, so I'm leaving them here.
-// Just didn't want to add the track names to a whole extra array, haha
+// Commenting out verifiableCollection. It works, so I'm leaving it here.
+// Just didn't want to add the track names to a whole extra array.
+// Might return if I find myself having an abundance of time tonight, haha
 
 // let verifiableCollection = [];
-// const emptyCollection = [];
+const emptyCollection = [];
 
 // addToCollection(verifiableCollection, 'Blue', 'Joni Mitchell', 1971);
 // addToCollection(verifiableCollection, 'The Miseducation of Lauryn Hill', 'Lauryn Hill', 1998);
@@ -128,7 +131,7 @@ function showCollection(array) {
 
 showCollection(collection);
 // showCollection(verifiableCollection);
-// showCollection(emptyCollection);
+showCollection(emptyCollection);
 
 //It did what I thought it should!
 
@@ -200,6 +203,11 @@ console.log(searchCollection());
 
 // addToCollection INPUT: + Tracks
 // addToCollection OUTPUT: + [Tracks]
+
+// searchCollection INPUT: + trackName
+// Loop through albums and... return the array that they're located in? (Which array will I get??)
+// " OUTPUT: Not sure if this should just grab the song or grab the whole album...
+
 
 // - Add an array of `tracks` to your album objects. Each track should have a `name` and `duration`. You will need to update the functions to support this new property:
 //   - Update the `addToCollection` function to also take an input parameter for the array of tracks.
