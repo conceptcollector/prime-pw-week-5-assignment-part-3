@@ -19,7 +19,10 @@ function addToCollection(recordCollection, title, artist, yearPublished, tracks)
     return album;
 }
 
-addToCollection(collection, 'Blackstar', 'David Bowie', 2016);
+addToCollection(collection, 'Blackstar', 'David Bowie', 2016, [
+    ['Blackstar']['9:57'],
+    ["'Tis a Pity She Was a Whore"]['4:52']
+]);
 addToCollection(collection, 'Let It Be', 'The Beatles', 1970);
 addToCollection(collection, 'Let It Be', 'The Replacements', 1984);
 addToCollection(collection, 'Alice', 'Tom Waits', 2002);
@@ -103,13 +106,9 @@ function searchCollection(artist, year) {
 }
 
 console.log(searchCollection('The Replacements', 1984));
-searchCollection('Tom Waits', 2002);
 console.log(searchCollection('Tom Waits', 2002));
-searchCollection('Beyonce', 2020);
 console.log(searchCollection('Beyonce', 2020));
-searchCollection('Ray Charles', 1957);
 console.log(searchCollection('Ray Charles', 1957));
-searchCollection();
 console.log(searchCollection());
 
 // Hm... I don't know how to make it only push the artist and year.
@@ -120,6 +119,9 @@ console.log(searchCollection());
 
 // Tracks as an array. (I'm thinking very seriously about making it an array of arrays.
 // But that seems potentially needlessly complicated with little to no pay off.)
+
+// addToCollection INPUT: + Tracks
+// addToCollection OUTPUT: + [Tracks]
 
 // - Add an array of `tracks` to your album objects. Each track should have a `name` and `duration`. You will need to update the functions to support this new property:
 //   - Update the `addToCollection` function to also take an input parameter for the array of tracks.
