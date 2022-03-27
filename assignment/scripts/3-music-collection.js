@@ -20,25 +20,103 @@ function addToCollection(recordCollection, title, artist, yearPublished, tracks)
 }
 
 addToCollection(collection, 'Blackstar', 'David Bowie', 2016, [
-    ['Blackstar']['9:57'],
-    ["'Tis a Pity She Was a Whore"]['4:52']
+    ['Blackstar', '9:57'],
+    ["'Tis a Pity She Was a Whore", '4:52'],
+    ['Lazarus', '6:22'],
+    ['Sue (Or in a Season of Crime)', '4:40'],
+    ['Girl Loves Me', '4:52'],
+    ['Dollar Days', '4:44'],
+    ["I Can't Give Everything Away", '5:47']
 ]);
-addToCollection(collection, 'Let It Be', 'The Beatles', 1970);
-addToCollection(collection, 'Let It Be', 'The Replacements', 1984);
-addToCollection(collection, 'Alice', 'Tom Waits', 2002);
-addToCollection(collection, 'Blood Money', 'Tom Waits', 2002);
-addToCollection(collection, 'Beyonce', 'Beyonce', 2013);
+addToCollection(collection, 'Let It Be', 'The Beatles', 1970, [
+    ['Two of Us', '3:36'],
+    ['Dig a Pony', '3:54'],
+    ['Across the Universe', '3:48'],
+    ['I Me Mine', '2:26'],
+    ['Dig It', '0:50'],
+    ['Let it Be', '4:03'],
+    ['Maggie Mae', '0:40'],
+    ["I've Got a Feeling", '3:37'],
+    ['One After 909', '2:54'],
+    ['The Long and Winding Road', '3:38'],
+    ['For You Blue', '2:32'],
+    ['Get Back', '3:09']
+]);
+addToCollection(collection, 'Let It Be', 'The Replacements', 1984, [
+    ['I Will Dare', '3:08'],
+    ['Favorite Thing', '2:19'],
+    ["We're Comin' Out", '2:21'],
+    ['Tommy Gets His Tonsils Out', '1:53'],
+    ['Androgynous', '3:11'],
+    ['Black Diamond', '2:40'],
+    ['Unsatisfied', '4:01'],
+    ['Seen Your Video', '3:08'],
+    ["Gary's Got a Boner", '2:28'],
+    ['Sixteen Blue', '4:24'],
+    ['Answering Machine', '3:40']
+]);
+addToCollection(collection, 'Alice', 'Tom Waits', 2002, [
+    ['Alice', '4:28'],
+    ['Everything You Can Think', '3:10'],
+    ["Flower's Grave", '3:28'],
+    ["No One Knows I'm Gone", '1:42'],
+    ['Kommienezuspadt', '3:10'],
+    ['Poor Edward', '3:42'],
+    ['Table Top Joe', '4:14'],
+    ['Lost in the Harbour', '3:45'],
+    ["We're All Mad Here", '2:31'],
+    ['Watch Her Disappear', '2:33'],
+    ['Reeperbahn', '4:02'],
+    ["I'm Still Here", '1:49'],
+    ['Fish & Bird', '3:59'],
+    ['Barcarolle', '3:59'],
+    ['Fawn', '1:43']
+]);
+addToCollection(collection, 'Blood Money', 'Tom Waits', 2002, [
+    ['Misery Is the River of the World', '4:25'],
+    ['Everything Goes to Hell', '3:45'],
+    ['Coney Island Baby', '4:02'],
+    ['All the World Is Green', '4:36'],
+    ["God's Away on Business", '2:59'],
+    ["Another Man's Vine", '2:28'],
+    ['Knife Chase', '2:26'],
+    ['Lullaby', '2:09'],
+    ['Starving in the Belly of a Whale', '3:41'],
+    ['The Part You Throw Away', '4:22'],
+    ['Woe', '1:20'],
+    ['Calliope', '1:59'],
+    ['A Good Man Is Hard to Find', '3:57']
+]);
+addToCollection(collection, 'Beyonce', 'Beyonce', 2013, [
+    ['Pretty Hurts', '4:17'],
+    ['Haunted', '6:09'],
+    ['Drunk in Love', '5:23'],
+    ['Blow', '5:09'],
+    ['No Angel', '3:48'],
+    ['Partition', '5:19'],
+    ['Jealous', '3:04'],
+    ['Rocket', '6:31'],
+    ['Mine', '6:18'],
+    ['XO', '3:35'],
+    ['Flawless', '4:10'],
+    ['Superpower', '4:36'],
+    ['Heaven', '3:50'],
+    ['Blue', '4:26']
+]);
 console.log(collection);
 
-let verifiableCollection = [];
-const emptyCollection = [];
+// Commenting out the other arrays. They work, so I'm leaving them here.
+// Just didn't want to add the track names to a whole extra array, haha
 
-addToCollection(verifiableCollection, 'Blue', 'Joni Mitchell', 1971);
-addToCollection(verifiableCollection, 'The Miseducation of Lauryn Hill', 'Lauryn Hill', 1998);
-addToCollection(verifiableCollection, 'Fetch the Bolt Cutters', 'Fiona Apple', 2020);
-addToCollection(verifiableCollection, "Blacks' Magic", 'Salt-N-Pepa', 1990);
-addToCollection(verifiableCollection, 'Pastel Blues', 'Nina Simone', 1965);
-addToCollection(verifiableCollection, 'Zen Arcade', 'Hüsker Dü', 1984);
+// let verifiableCollection = [];
+// const emptyCollection = [];
+
+// addToCollection(verifiableCollection, 'Blue', 'Joni Mitchell', 1971);
+// addToCollection(verifiableCollection, 'The Miseducation of Lauryn Hill', 'Lauryn Hill', 1998);
+// addToCollection(verifiableCollection, 'Fetch the Bolt Cutters', 'Fiona Apple', 2020);
+// addToCollection(verifiableCollection, "Blacks' Magic", 'Salt-N-Pepa', 1990);
+// addToCollection(verifiableCollection, 'Pastel Blues', 'Nina Simone', 1965);
+// addToCollection(verifiableCollection, 'Zen Arcade', 'Hüsker Dü', 1984);
 
 function showCollection(array) {
     console.log(`My collection currently holds ${array.length} albums.`);
@@ -49,8 +127,8 @@ function showCollection(array) {
 }
 
 showCollection(collection);
-showCollection(verifiableCollection);
-showCollection(emptyCollection);
+// showCollection(verifiableCollection);
+// showCollection(emptyCollection);
 
 //It did what I thought it should!
 
@@ -65,11 +143,11 @@ function findByArtist(artist, array) {
 }
 
 findByArtist('Tom Waits', collection);
-findByArtist('Nina Simone', verifiableCollection);
+// findByArtist('Nina Simone', verifiableCollection);
 findByArtist('Beyonce', collection);
-findByArtist('Joni Mitchell', verifiableCollection);
+// findByArtist('Joni Mitchell', verifiableCollection);
 findByArtist('Prince', collection);
-findByArtist('Led Zeppelin', verifiableCollection);
+// findByArtist('Led Zeppelin', verifiableCollection);
 
 //Probably completely unnecessary to run this against two arrays that work the same way.
 //But I'm taking my notes from last week to heart, I guess!
