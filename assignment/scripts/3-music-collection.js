@@ -194,7 +194,9 @@ function searchCollection(artist, year, trackName) {
         recordStoreFind.push(collection[finder]);
         for (let song = 0; song < Object.keys(collection[finder].tracks).length; song++) {
             if (trackName === collection[finder].tracks[song][0]) {
-                recordStoreFind.push(collection[finder].tracks[song][0]);
+                let songStore = [];
+                songStore.push(collection[finder].tracks[song][0]);
+                return songStore;
             }
             }
     }
