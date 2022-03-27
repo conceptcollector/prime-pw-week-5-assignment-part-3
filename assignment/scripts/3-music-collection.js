@@ -193,8 +193,8 @@ function searchCollection(artist, year, trackName) {
         if (artist === collection[finder].artist && year === collection[finder].yearPublished) {
         recordStoreFind.push(collection[finder]);
         for (let song = 0; song < Object.keys(collection[finder].tracks).length; song++) {
-            if (trackName === collection[finder].tracks[song]) {
-                recordStoreFind.push(collection[finder].tracks[song]);
+            if (trackName === collection[finder].tracks[song][0]) {
+                recordStoreFind.push(collection[finder].tracks[song][0]);
             }
             }
     }
@@ -204,7 +204,7 @@ function searchCollection(artist, year, trackName) {
 }
 
 console.log(searchCollection('The Replacements', 1984, 'Unsatisfied'));
-console.log(searchCollection('Tom Waits', 2002));
+console.log(searchCollection('Tom Waits', 2002, 'Alice'));
 console.log(searchCollection('Beyonce', 2020));
 console.log(searchCollection('Ray Charles', 1957));
 console.log(searchCollection());
